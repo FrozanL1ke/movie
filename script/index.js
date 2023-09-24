@@ -51,7 +51,7 @@ const getNav = () => {
     const daysOfTheWeek = [];
     const tamesmarks = [];
 
-    for (let i = 1; i <= 7; i++) {
+    for (i = 1; i <= 7; i++) {
       const curr = new Date();
       const day = new Date(
         curr.setDate(curr.getDate() - 1 + i)
@@ -62,14 +62,11 @@ const getNav = () => {
       week.push(day);
       daysOfTheWeek.push(dayOfTheWeek);
       tamesmarks.push(
-        i === 1
-          ? Math.trunc(
-              new Date(new Date().setHours(0, 0, 0, 0)).getTime() / 1000
-            )
-          : Math.trunc(
-              new Date(new Date().setHours(0, 0, 0, 0)).getTime() / 1000
+       
+           Math.trunc(
+              new Date(new Date().setHours(0, 0, 0, 0)).getTime() / 1000 
             ) +
-              24 * 60 * 60 * i
+              24 * 60 * 60 * i 
       );
     }
 
