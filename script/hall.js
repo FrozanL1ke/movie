@@ -3,25 +3,25 @@ const movie = JSON.parse(localStorage.getItem("movie"));
 const cinemaWrap = document.querySelector(".conf-step__wrapper");
 let isResponse = false;
 
-// async function getHallConfig() {
-//   try {
-//     const response = await fetch(url, {
-//       method: "POST",
-//       body: `event=get_hallConfig&timestamp=${movie.timestamp}&hallId=${movie.hallId}&seanceId=${movie.seanceId}`,
-//       headers: {
-//         "Content-Type": "application/x-www-form-urlencoded",
-//       },
-//     });
-//     const data = await response.json();
-//     if (data) {
-//       isResponse = true;
-//       cinemaWrap.innerHTML = data;
-//     }
-//     return data;
-//   } catch (error) {
-//     console.error("Ошибка:", error);
-//   }
-// }
+ async function getHallConfig() {
+   try {
+    const response = await fetch(url, {
+       method: "POST",
+       body: `event=get_hallConfig&timestamp=${movie.timestamp}&hallId=${movie.hallId}&seanceId=${movie.seanceId}`,
+       headers: {
+         "Content-Type": "application/x-www-form-urlencoded",
+       },
+     });
+     const data = await response.json();
+     if (data) {
+       isResponse = true;
+       cinemaWrap.innerHTML = data;
+     }
+     return data;
+   } catch (error) {
+     console.error("Ошибка:", error);
+   }
+ }
 
 async function getAllSeances() {
   try {
